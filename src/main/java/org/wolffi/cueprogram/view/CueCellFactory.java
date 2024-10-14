@@ -13,12 +13,10 @@ public class CueCellFactory implements Callback<ListView<Cue>, ListCell<Cue>> {
 
     @Override
     public ListCell<Cue> call(ListView<Cue> cueView) {
-        System.out.println("Size: " + cueView.getItems().size());
         return new ListCell<>() {
             @Override
             protected void updateItem(Cue cue, boolean empty) {
                 super.updateItem(cue, empty);
-                System.out.println("Update list view");
                 if (!empty && cue != null) {
                     setText(cue.getName());
                 }
