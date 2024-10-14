@@ -5,6 +5,7 @@ module org.wolffi.cueprogram {
     requires java.desktop;
     requires javafx.media;
     requires org.apache.commons.lang3;
+    requires org.apache.logging.log4j;
 
     exports org.wolffi.cueprogram;
     exports org.wolffi.cueprogram.model;
