@@ -4,6 +4,12 @@ import javafx.scene.media.Media;
 
 import java.io.File;
 
+/**
+ * ToDo: Add fade out/in time to cue class
+ * Add list index to cue class
+ * Instead of using setters add another constructor which expects all parameters or via one update method which expects
+ * a AudioCue object
+ */
 public class AudioCue implements Cue {
 
     private String name;
