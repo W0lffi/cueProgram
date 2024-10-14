@@ -2,7 +2,6 @@ module org.wolffi.cueprogram {
     requires javafx.controls;
 
     requires org.controlsfx.controls;
-    requires java.desktop;
     requires javafx.media;
     requires org.apache.commons.lang3;
     requires org.apache.logging.log4j;
