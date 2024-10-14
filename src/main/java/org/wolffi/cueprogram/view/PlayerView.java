@@ -19,6 +19,7 @@ public class PlayerView {
     private final Button btnStopCue;
     private final Button btnPlayCue;
     private final Button btnFadeOutCue;
+    private final Button btnPauseCue;
 
     public PlayerView(Stage stage) {
         cueView = new ListView<>();
@@ -52,6 +53,14 @@ public class PlayerView {
         AnchorPane.setTopAnchor(btnStopCue, 100.0d);
         AnchorPane.setBottomAnchor(btnStopCue, 950.0d);
 
+        btnPauseCue = new Button("Pause");
+        btnPauseCue.setMinSize(100.0d, 100.0d);
+        btnPauseCue.setMaxSize(100.0d, 100.0d);
+        AnchorPane.setLeftAnchor(btnPauseCue, 1700.0d);
+        AnchorPane.setRightAnchor(btnPauseCue, 25.0d);
+        AnchorPane.setTopAnchor(btnPauseCue, 150.0d);
+        AnchorPane.setBottomAnchor(btnPauseCue, 900.0d);
+
         btnFadeOutCue = new Button("Fade out");
         btnFadeOutCue.setMinSize(100.0d, 100.0d);
         btnFadeOutCue.setMaxSize(100.0d, 100.0d);
@@ -60,7 +69,7 @@ public class PlayerView {
         AnchorPane.setTopAnchor(btnFadeOutCue, 100.0d);
         AnchorPane.setBottomAnchor(btnFadeOutCue, 950.0d);
 
-        root = new AnchorPane(cueView, btnAddCue, btnPlayCue, btnStopCue, btnFadeOutCue);
+        root = new AnchorPane(cueView, btnAddCue, btnPlayCue, btnStopCue, btnFadeOutCue, btnPauseCue);
         root.setMinSize(500.0d,500.0d);
         mainScene = new Scene(root, 1920, 1080, Color.GRAY);
         stage.setTitle("Cue player");
@@ -68,11 +77,11 @@ public class PlayerView {
         stage.show();
     }
 
-
     public ListView<Cue> getCueView() { return this.cueView; }
+    public int getSelectedCueIndex() { return this.cueView.getSelectionModel().getSelectedIndex(); }
     public Button getBtnAddCue() { return this.btnAddCue; }
     public Button getBtnPlayCue() { return this.btnPlayCue; }
     public Button getBtnStopCue() { return this.btnStopCue; }
+    public Button getBtnPauseCue() { return this.btnPauseCue; }
     public Button getBtnFadeOutCue() { return this.btnFadeOutCue; }
-
 }
