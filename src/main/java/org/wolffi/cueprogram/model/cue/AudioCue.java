@@ -1,4 +1,4 @@
-package org.wolffi.cueprogram.model;
+package org.wolffi.cueprogram.model.cue;
 
 import javafx.scene.media.Media;
 
