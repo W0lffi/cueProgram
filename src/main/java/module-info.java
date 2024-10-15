@@ -10,4 +10,6 @@ module org.wolffi.cueprogram {
     exports org.wolffi.cueprogram.model;
     exports org.wolffi.cueprogram.view;
     exports org.wolffi.cueprogram.controller;
+    exports org.wolffi.cueprogram.model.cue;
+    exports org.wolffi.cueprogram.model.enums;
 }

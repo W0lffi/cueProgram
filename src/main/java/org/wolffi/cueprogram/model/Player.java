@@ -10,6 +10,8 @@ import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.wolffi.cueprogram.model.cue.AudioCue;
+import org.wolffi.cueprogram.model.cue.Cue;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -7,7 +7,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import org.wolffi.cueprogram.model.Cue;
+import org.wolffi.cueprogram.model.cue.Cue;
 
 
 public class PlayerView {

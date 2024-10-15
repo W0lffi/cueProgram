@@ -3,7 +3,7 @@ package org.wolffi.cueprogram.view;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.util.Callback;
-import org.wolffi.cueprogram.model.Cue;
+import org.wolffi.cueprogram.model.cue.Cue;
 
 public class CueCellFactory implements Callback<ListView<Cue>, ListCell<Cue>> {
 
