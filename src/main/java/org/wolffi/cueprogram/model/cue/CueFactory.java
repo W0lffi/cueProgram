@@ -10,7 +10,11 @@ public final class CueFactory {
 
     private static final Logger log = LogManager.getLogger();
 
-    private CueFactory() {};
+    /**
+     * Factory classes, which are collections of static members, are not meant to be instantiated.
+     * Hence, at least one non-public constructor should be defined, to restrict this.
+     */
+    private CueFactory() { throw new IllegalStateException("Cannot instantiate a factory class"); };
 
     public static Cue createCue(CueType type, Object ...params) {
         return switch (type) {
