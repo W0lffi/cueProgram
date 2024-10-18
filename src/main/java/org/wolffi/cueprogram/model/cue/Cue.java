@@ -1,7 +1,13 @@
 package org.wolffi.cueprogram.model.cue;
 
 public interface Cue {
-    void setStart(double startTime);
-    void setStop(double endTime);
+    default void play() {}
+    default void stop() {}
+    default void pause() {}
+    default void fadeIn() {}
+    default void fadeOut() {}
+
+    void setName(String name);
+
     String getName();
 }
