@@ -78,6 +78,7 @@ public class PlayerView {
     }
 
     public ListView<Cue> getCueView() { return this.cueView; }
+    public int getCueListSize() { return this.cueView.getItems().size(); }
     public int getSelectedCueIndex() { return this.cueView.getSelectionModel().getSelectedIndex(); }
     public Button getBtnAddCue() { return this.btnAddCue; }
     public Button getBtnPlayCue() { return this.btnPlayCue; }
