@@ -6,6 +6,10 @@ import org.apache.logging.log4j.Logger;
 import org.wolffi.cueprogram.model.enums.CueType;
 
 
+/**
+ * Extracts the logic of what type of cue is created of the controller.
+ * @author Wolffi
+ */
 public final class CueFactory {
 
     private static final Logger log = LogManager.getLogger();

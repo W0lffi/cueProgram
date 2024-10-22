@@ -10,6 +10,10 @@ import javafx.stage.Stage;
 import org.wolffi.cueprogram.model.cue.Cue;
 
 
+/**
+ * This view renders the player and its controls.
+ * @author Wolffi
+ */
 public class PlayerView {
 
     private final Scene mainScene;

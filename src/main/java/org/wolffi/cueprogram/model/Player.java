@@ -10,7 +10,8 @@ import org.wolffi.cueprogram.model.cue.Cue;
 
 
 /**
- * ToDo: Use fade out/in time of cue class instead of static time
+ * The player hold the list of cues and can also control every of it.
+ * @author Wolffi
  */
 public final class Player {
 

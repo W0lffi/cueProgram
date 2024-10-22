@@ -14,10 +14,16 @@ import java.io.File;
 
 /**
  * ToDo:
- * Fade out at pause
+ * Possibility to add Output source
+ * Add color and page as property for every cue
+ * Maybe a class like cue setting?
+ * Fade out at pause, then increase start time by fade out time
+ * Instead of fade in/out methods just use properties to enable it
  * Instead of static value for fade time set it via constructor
  * Instead of using setters add another constructor which expects all parameters or via one update method which expects
  * a AudioCue object
+ * This class represents a sound. It manages all settings such as: volume, fade in/out, etc.
+ * @author Wolffi
  */
 public class AudioCue implements Cue {
 
@@ -62,8 +68,18 @@ public class AudioCue implements Cue {
         this.player = new MediaPlayer(loadSound(this.path));
     }
 
+    /**
+     * Loads a sound file and returns it as media for a player.
+     * @param path The path of the sound file
+     * @return A media object which has loaded the provided sound file.
+     */
     private Media loadSound(String path) { return new Media(new File(path).toURI().toString()); }
 
+
+    /**
+     * This method ensure that the file has a clean beginning if it is replayed.
+     * Without a new media object you will hear a rest of it where it stopped if you click on play again.
+     */
     private void stopPlayer() {
         this.player.stop();
         this.player.dispose();
@@ -72,6 +88,12 @@ public class AudioCue implements Cue {
         this.player.setStartTime(Duration.millis(this.startTime));
     }
 
+    /**
+     * Creates a fade in/out timeline for the cue depending on type and duration.
+     * @param type The fade type
+     * @param duration The fade duration
+     * @return A timeline for fading
+     */
     private Timeline createFade(FadeType type, double duration) {
         Timeline fade = new Timeline();
         Duration fadeDuration = Duration.millis(duration);
@@ -94,6 +116,10 @@ public class AudioCue implements Cue {
         return fade;
     }
 
+    /**
+     * {@inheritDoc}
+     * If fade in is enabled the cue is smoothly faded in.
+     */
     @Override
     public void play() {
         this.player.play();
@@ -101,12 +127,18 @@ public class AudioCue implements Cue {
         log.debug("Playing \"{}\" with index: {}", this.name, this.index);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void stop() {
         this.stopPlayer();
         log.debug("Stopped \"{}\" with index: {}", this.name, this.index);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void fadeIn() {
         this.player.play();
@@ -114,12 +146,18 @@ public class AudioCue implements Cue {
         log.debug("Faded in \"{}\" with index: {}", this.name, this.index);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void fadeOut() {
         this.fadeOut.play();
         log.debug("Faded out \"{}\" with index: {}", this.name, this.index);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void pause() {
         this.player.setStartTime(this.player.getCurrentTime()/*.add(Duration.millis(this.fadeOutDuration))*/);
@@ -143,6 +181,7 @@ public class AudioCue implements Cue {
         this.fadeOutDuration = duration;
         this.fadeOut = createFade(FadeType.FADE_OUT, this.fadeOutDuration);
     }
+
 
     public void setIndex(int index) { this.index = index; }
 
